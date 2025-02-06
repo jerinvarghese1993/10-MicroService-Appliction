@@ -13,7 +13,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'd478fc97-460b-4e5f-9691-c6b29e96aaab'
-  imageRepository: 'jerinvarghesemicroserviceappliction'
+  imageRepository: 'frontend'
   containerRegistry: 'prokoptocontainerr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/src/frontend/Dockerfile'
   tag: '$(Build.BuildId)'

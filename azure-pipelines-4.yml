@@ -13,7 +13,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '7ccd512e-ef0c-478c-886c-83a8c48a4414'
-  imageRepository: 'jerinvarghesemicroserviceappliction'
+  imageRepository: 'emailservice'
   containerRegistry: 'prokoptocontainerr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/src/emailservice/Dockerfile'
   tag: '$(Build.BuildId)'

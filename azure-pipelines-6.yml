@@ -13,7 +13,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'f958bd30-65b8-4a5a-ac34-4c8bf9abb6af'
-  imageRepository: 'jerinvarghesemicroserviceappliction'
+  imageRepository: 'loadgenerator'
   containerRegistry: 'prokoptocontainerr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/src/loadgenerator/Dockerfile'
   tag: '$(Build.BuildId)'

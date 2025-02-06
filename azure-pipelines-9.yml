@@ -1,0 +1,51 @@
+# Docker
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+ paths:
+   include:
+     - src/shippingservice/*
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '24d6aba7-a9e9-498c-80a7-73e4acd31868'
+  imageRepository: 'jerinvarghesemicroserviceappliction'
+  containerRegistry: 'prokoptocontainerr.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/src/shippingservice/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+pool:
+ name: azureagent
+
+stages:
+- stage: Build
+  displayName: Build the image
+  jobs:
+  - job: Build
+    displayName: Build
+    steps:
+    - task: Docker@2
+      displayName: Build the image
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'build'
+        Dockerfile: 'src/shippingservice/Dockerfile'
+        tags: '$(tag)'
+- stage: Push
+  displayName: Push the image
+  jobs:
+  - job: Push
+    displayName: Push
+    steps:
+    - task: Docker@2
+      displayName: Push the image to registry
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'push'
+        tags: '$(tag)'

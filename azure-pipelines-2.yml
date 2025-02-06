@@ -32,7 +32,7 @@ stages:
       displayName: Build the image
       inputs:
         containerRegistry: '$(dockerRegistryServiceConnection)'
-        repository: 'checkoutserviceapp'
+        repository: '$(imageRepository)'
         command: 'build'
         Dockerfile: 'src/checkoutservice/Dockerfile'
         tags: '$(tag)'

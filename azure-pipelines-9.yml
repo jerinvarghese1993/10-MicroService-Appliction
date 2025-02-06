@@ -13,7 +13,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '24d6aba7-a9e9-498c-80a7-73e4acd31868'
-  imageRepository: 'jerinvarghesemicroserviceappliction'
+  imageRepository: 'shippingservice'
   containerRegistry: 'prokoptocontainerr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/src/shippingservice/Dockerfile'
   tag: '$(Build.BuildId)'
